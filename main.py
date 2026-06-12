@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.html('<meta name="google-site-verification" content="QtsAa4zSDNnVR1bOmdh4CEce4qUvFPlsH87nWCo4QLc" />')
 st.title("I AM SOMMAY and this is my first AI project")
 st.text("If you want to try the AI, press the button below.")
 if st.button("Try AI"):
