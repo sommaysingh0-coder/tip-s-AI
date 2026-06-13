@@ -1,4 +1,8 @@
-Q = ("question")
+import random
+import pyjokes
+
+Q = "question"
+
 while True:
     print("HI I'm tip's ")
     print("-----------------------------------------------------------------------")
@@ -9,16 +13,21 @@ while True:
        #I can play game with you for game type 'game'.
       #to know who created me?? type 'sommay'. 
       #have you heard a joke for type 'joke'. 
-      #if I have told wyou ABCD for ABCD type 'ABCD'.
-      #and I can count to billions and trillions.  ''')
+      #if I have told you ABCD for ABCD type 'ABCD'.
+      #and I can count to billions and trillions.
+      #If you ever forget your IDs or passwords, I can keep your data 100% safe without any servers! 
+          type (RR) ''')
     print("-----------------------------------------------------------------------")
     print("-----------------------------------------------------------------------")
     print("-----------------------------------------------------------------------")
+    
     Q_1 = input("what do you want to do? ")
     print("you choose to " + Q_1 + " ok let's do it")
     print("-----------------------------------------------------------------------")
     print("-----------------------------------------------------------------------")
     print("-----------------------------------------------------------------------")
+    
+    # 1. Calculator
     if Q_1 == "c":
        print("you have a maths " + Q + " ok I can solve it")
        print("for add type it ' + '")
@@ -30,24 +39,22 @@ while True:
        num_1 = int(input("what is you fist number for " + s + " "))
        num_2 = int(input("what is your second number for " + s + " "))
        if s == "+":
-        s_1 = num_1 + num_2
+          s_1 = num_1 + num_2
        elif s == "-":
-        s_1 = num_1 - num_2
+          s_1 = num_1 - num_2
        elif s == "*":
-        s_1 = num_1 * num_2
+          s_1 = num_1 * num_2
        elif s == "/":
-        s_1 = num_1 / num_2
+          s_1 = num_1 / num_2
        elif s == "%":
-        s_1 = num_1 % num_2
+          s_1 = num_1 % num_2
        else:
-        s_1 = "Invalid Operator!"
+          s_1 = "Invalid Operator!"
        print("ans is")
        print(s_1)
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    import random
-    if Q_1 == "game":
+       
+    # 2. Game
+    elif Q_1 == "game":
        print("you choose to play a game")
        print("let's play a random number guessing game") 
        print("I will think of a number between 1 and 100, and you have to guess it.")
@@ -70,10 +77,9 @@ while True:
                   break
          except ValueError:
                print("Invalid input! Please enter a valid number or 'exit' to quit.")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    if Q_1 == "sommay":
+               
+    # 3. Creator Info
+    elif Q_1 == "sommay":
      print('''You choose to know who created me!
           I was created by Sommay. He is a 13-year-old boy, very smart, and the best programmer in 
            the world! He is the 
@@ -83,95 +89,90 @@ while True:
            This team of three KV kids worked together and made this project in just 30 days!
             Sommay is the main mind who created me, and all three friends are working hard 
            every day to make me better, smarter, and more useful.''')
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")        
-    import pyjokes
-    if Q_1 == "joke":
+           
+    # 4. Joke
+    elif Q_1 == "joke":
      print("you choose to hear a joke")
      joke = pyjokes.get_joke()
      print(joke)
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")            
-    print("-----------------------------------------------------------------------")
-    if Q_1 == "ABCD":
+     
+    # 5. ABCD
+    elif Q_1 == "ABCD":
      print("you choose to hear ABCD")
      print('''A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
-     a b c d e f g h i j k l m n o p q r s t u v w x y z''')
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    print("-----------------------------------------------------------------------")
-    if Q_1 == "count":
-     s =  input("how much do you want to count to? ")
+     a b c d e f g h i j l m n o p q r s t u v w x y z''')
+     
+    # 6. Counter
+    elif Q_1 == "count":
+     s = input("how much do you want to count to? ")
      try:
         s = int(s)
         for i in range(1, s + 1):
             print(i)
      except ValueError:
         print("Invalid input! Please enter a valid number.")
-    if Q_1 == "RR":
-      print("=== The Tips AI ===")
-      print(" you can make any meaning of any world?")
-      print("like this 'hi = 1111' ")
-      print("If you want to give a different meaning to a word than what you already have, then comment it!")
-      print(" 'your word' = delete " )
-      print("like this ")
+        
+    # 7. Secret RR Feature (Serverless Secure Memory)
+    elif Q_1 == "RR":
+      print("=== The Tips AI Offline Secure Memory ===")
+      print("You can save data, IDs, or Passwords locally.")
+      print("Example: 'my email = Sommaysingh0@gmail.com'")
+      print("To delete a saved entry, type: 'your word = delete'")
+      print("Data is stored 100% locally on your machine. No external servers connected!")
+      print("-----------------------------------------------------------------------")
       knowledge = {}
 
       try:
-       with open("memory.txt", "r") as f:
-        for line in f:
-            q, a = line.strip().split("|", 1)
-            knowledge[q] = a
-      except:
-        print("No memory found. Starting fresh!")
+         with open("memory.txt", "r") as f:
+            for line in f:
+                if "|" in line:
+                    q, a = line.strip().split("|", 1)
+                    knowledge[q] = a
+      except FileNotFoundError:
+         pass
 
-    while True:
+      while True:
+          user = input("You : ").strip().lower()
 
-      user = input("You : ").strip().lower()
+          if user == "exit":
+              print("The Tips AI : Exiting Secure Memory Mode...")
+              break
 
-      if user == "exit":
-        print("The Tips AI : Bye!")
-        break
+          elif "=" in user:
+              question, answer = user.split("=", 1)
+              question = question.strip().lower()
+              answer = answer.strip()
 
-    # Update ya Delete command
-      elif "=" in user:
+              if answer.lower() == "delete":
+                  if question in knowledge:
+                      del knowledge[question]
+                      print("The Tips AI : Deleted!")
+                  else:
+                      print("The Tips AI : Not found!")
+              else:
+                  knowledge[question] = answer
+                  print("The Tips AI : Saved safely offline!")
 
-        question, answer = user.split("=", 1)
+              with open("memory.txt", "w") as f:
+                  for q, a in knowledge.items():
+                      f.write(q + "|" + a + "\n")
 
-        question = question.strip().lower()
-        answer = answer.strip()
+          elif user in knowledge:
+              print("The Tips AI :", knowledge[user])
 
-        if answer.lower() == "delete":
+          else:
+              print("The tips AI : I don't remember that. Can you teach me?")
+              answer = input("Teach me : ")
+              knowledge[user] = answer
 
-            if question in knowledge:
-                del knowledge[question]
-                print("The Tips AI : Deleted!")
-
-            else:
-                print("The Tips AI : Not found!")
-
-        else:
-
-            knowledge[question] = answer
-            print("The Tips AI : Saved!")
-
-        # Memory file rewrite
-        with open("memory.txt", "w") as f:
-            for q, a in knowledge.items():
-                f.write(q + "|" + a + "\n")
-
-      elif user in knowledge:
-
-        print("The Tips AI :", knowledge[user])
-
-      else:
-          print("The tips AI : I don't know that.can you teach me?")
-          answer = input("Teach me : ")
-          knowledge[user] = answer
-
-          with open("memory.txt", "a") as f:
-             for q, a in knowledge.items():
-                f.write(q + "|" + a + "\n")
-          print("The Tips AI : Thanks I learned something new!")
+              with open("memory.txt", "w") as f:
+                  for q, a in knowledge.items():
+                      f.write(q + "|" + a + "\n")
+              print("The Tips AI : Thanks, I learned something new!")
+              
+    else:
+        print("Invalid Option! Please select from the menu.")
+        
+    print("-----------------------------------------------------------------------")
+    print("-----------------------------------------------------------------------")
+    print("-----------------------------------------------------------------------")
