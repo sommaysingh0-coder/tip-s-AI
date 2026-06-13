@@ -17,4 +17,4 @@ if st.button("Try AI"):
       with open("tips.py", "r") as f:
          content = f.read()
          st.code(content, language="python")
-         st.html('<meta name="google-site-verification" content="QtsAa4zSDNnVR1bOmdh4CEce4qUvFPlsH87nWCo4QLc" /> " />')
+         st.html('<head><meta name="google-site-verification" content="QtsAa4zSDNnVR1bOmdh4CEce4qUvFPlsH87nWCo4QLc" /></head>')
